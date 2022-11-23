@@ -1,0 +1,42 @@
+body
+{
+    background-color:#fbd139;
+}
+h1
+{
+    color:rgb(38,0,288);
+    background-color:cornsilk;
+}
+#show_sketch
+{
+    float:right;
+}
+canvas{
+    border:5px solid white;
+    border-radius:20px;
+    animation-name:emogus;
+    animation-duration:4s;
+    margin-top:50px;
+    animation-iteration-count:infinite;
+}
+@keyframes emogus{
+    from{box-shadow: 1px 1px 38px grey;}
+    from{box-shadow: 1px 1px 38px white;}
+}
+p,span{
+    padding-top:10px;
+    font-size:25px;
+}
+#score{
+    font-size:30px;
+    margin-left:20px;
+    float:left;
+}
+#time{
+    font-size:30px;
+    margin-right:20px;
+    float:right;
+}
+#sketch_name{
+    color:red;
+}
