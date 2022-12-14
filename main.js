@@ -27,7 +27,7 @@ function clearCanvas(){
 function check_sketch(){
     timer_counter++;
     document.getElementById("time").innerHTML="timer: "+timer_counter;
-    if(timer_counter>3000){
+    if(timer_counter>1000){
         timer_counter=0;
         timer_check="completed";
     }
@@ -35,5 +35,31 @@ function check_sketch(){
         timer_check="";
         answer_holder="";
         updateCanvas();
+    }
+}
+function classifyCanvas() {
+    classifier.classify(canvas, gotResult);
+}
+function gotResult(error,results){
+    if(error) {
+        console.error(error);
+    }
+    console.log(results);
+    drawn_sketch=results[0].label;
+    document.getElementById("label").innerHTML="Your sketch: "+drawn_sketch;
+    document.getElementById("confidence").innerHTML="Confidence: "+Math.round(results[0].confidence*100)+"%";
+}
+function draw(){
+    strokeWeight(13);
+    stroke(0);
+    if(mouseIsPressed){
+        line(pmouseX,pmouseY,mouseX,mouseY);
+    }
+    check_sketch();
+    if(drawn_sketch==sketch)
+    {
+        answer_holder="set";
+        score++;
+        document.getElementById("score").innerHTML="score: "+score;
     }
 }
